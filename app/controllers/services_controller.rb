@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :set_services, only: %i[show edit update destroy]
+  before_action :set_service, only: %i[show edit update destroy]
 
   def index
     @services = Service.all
@@ -14,9 +14,8 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(services_params)
-    @service.save
     if @service.save
-      redirect_to service_path(@service)
+      redirect_to service_path(@service), notice: 'Service créé avec succès.'
     else
       render 'new', status: unprocessable_entity
     end
@@ -26,10 +25,8 @@ class ServicesController < ApplicationController
   end
 
   def update
-    @service = Service.new(services_params)
-    @service.save
-    if @service.save
-      redirect_to service_path(@service)
+    if @service.update(services_params)
+      redirect_to service_path(@service), notice: 'Service mis à jour avec succès.'
     else
       render 'edit', status: unprocessable_entity
     end
@@ -37,16 +34,16 @@ class ServicesController < ApplicationController
 
   def destroy
     @service.destroy
-    redirect_to services_path, status: :see_other
+    redirect_to services_path, status: :see_other, notice: 'Service supprimé avec succès.'
   end
 
   private
 
-  def set_services
-    @services = Service.find(params[:id])
+  def set_service
+    @service = Service.find(params[:id])
   end
 
   def services_params
-    params.require(:service).permit(:name, :photo, :type, :address, :price_per_day, :description, :photo)
+    params.require(:service).permit(:name, :photo, :service_type, :address, :price_per_day, :description)
   end
 end

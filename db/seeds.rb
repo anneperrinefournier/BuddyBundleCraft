@@ -12,7 +12,7 @@ require "open-uri"
 
 p "is detroying - #{Service.all.count} services - #{User.all.count} users - #{Booking.all.count} bookings"
 Booking.destroy_all
-Service.all.each do |vehicle|
+Service.all.each do |service|
   service.photo.purge
 end
 User.destroy_all
@@ -40,6 +40,9 @@ service1 = Service.new(
   address: 'Clichy',
   price_per_hour: 50
 )
+file = URI.open("https://cdn.pixabay.com/photo/2017/06/01/00/44/smiling-2362136_1280.jpg")
+service1.photo.attach(io: file, filename: "nautilus.png", content_type: "image/jpg")
+service1.save
 service1.save!
 
 service2 = Service.new(
@@ -49,6 +52,11 @@ service2 = Service.new(
   address: 'Paris',
   price_per_hour: 30
 )
+file = URI.open("https://cdn.pixabay.com/photo/2016/07/13/08/29/white-1513923_1280.jpg")
+service2.photo.attach(io: file, filename: "nautilus.png", content_type: "image/jpg")
+service2.save
 service2.save!
 
-p "created services number - #{Service.all.count} / user number #{User.all.count} / booking number #{Booking.all.count} "
+p "created services number - #{Service.all.count}"
+p "user number #{User.all.count}"
+p "booking number #{Booking.all.count}"

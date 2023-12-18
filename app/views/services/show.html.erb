@@ -1,0 +1,11 @@
+<div class="body-container">
+ <% if @service.photo.attached? %>
+      <%= cl_image_tag(@service.photo.key, alt: (@service.name + "-picture"), id: "service-picture", class: "builder-photo") %>
+    <% else %>
+      <%= cl_image_tag('eaa35mokrpgg4yg15ngp', height: 300, width: 400, crop: :fill, class: "card-test-img") %>
+    <% end %>
+  <div><%= @service.name %></div>
+  <div><%= @service.service_type %></div>
+  <div><%= @service.address %></div>
+  <div><%= @service.price_per_hour.to_i %> €</div>
+</div>
