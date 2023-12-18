@@ -1,0 +1,17 @@
+<div class="container">
+<h1>Buddy Bundle Craft: Des services à prix d’ami !</h1>
+  <div class="cards">
+      <% @services.each do |service| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= link_to service_path(service) do %>
+          <div class="d-flex flex-column card p-3 links">
+            <div><%= service.name %></div>
+            <div><%= service.service_type %></div>
+            <div><%= service.address %></div>
+            <div><%= service.price_per_hour.to_i %> €</div>
+          </div>
+    </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>

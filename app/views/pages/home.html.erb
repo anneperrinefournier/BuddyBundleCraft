@@ -1,2 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>BuddyBundleCraft: Des services à prix d’ami !</h1>
+
+  <div class="cards">
+  <%= link_to services_path do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.ibb.co/dMjQ8R8/bricolage.jpg)">
+    Réserver un service
+    </div>
+  <% end %>
+
+  <%= link_to new_service_path do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.ibb.co/7b9PBhz/bricolage2.jpg)">
+    Proposer un service
+    </div>
+  <% end %>
+  </div>
