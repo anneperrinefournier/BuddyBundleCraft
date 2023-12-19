@@ -2,7 +2,7 @@
  <% if @service.photo.attached? %>
       <%= cl_image_tag(@service.photo.key, alt: (@service.name + "-picture"), id: "service-picture", class: "builder-photo") %>
     <% else %>
-      <%= cl_image_tag('bpcnwcjphzkf25eryqj9', class: "builder-photo") %>
+      <%= cl_image_tag('bpcnwcjphzkf25eryqj9', class: "builder-photo", cloud_name: ENV['CLOUDINARY_CLOUD_NAME']) %>
     <% end %>
   <div><%= @service.name %></div>
   <div><%= @service.service_type %></div>
