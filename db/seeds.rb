@@ -42,7 +42,6 @@ service1 = Service.new(
 )
 file = URI.open("https://cdn.pixabay.com/photo/2017/06/01/00/44/smiling-2362136_1280.jpg")
 service1.photo.attach(io: file, filename: "nautilus.png", content_type: "image/jpg")
-service1.save
 service1.save!
 
 service2 = Service.new(
@@ -54,8 +53,16 @@ service2 = Service.new(
 )
 file = URI.open("https://cdn.pixabay.com/photo/2016/07/13/08/29/white-1513923_1280.jpg")
 service2.photo.attach(io: file, filename: "nautilus.png", content_type: "image/jpg")
-service2.save
 service2.save!
+
+service3 = Service.new(
+  user_id: monica.id,
+  name: 'Plantation',
+  service_type: 'Jardinerie',
+  address: 'Laval',
+  price_per_hour: 20
+)
+service3.save!
 
 p "created services number - #{Service.all.count}"
 p "user number #{User.all.count}"

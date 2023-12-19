@@ -24,8 +24,10 @@ a {
 }
 
 .builder-photo {
+  height: 200px;
   width: 200px;
   border-radius: 50px;
+  object-fit: cover;
 }
 
 // Smallest device

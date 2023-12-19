@@ -2,7 +2,7 @@
  <% if @service.photo.attached? %>
       <%= cl_image_tag(@service.photo.key, alt: (@service.name + "-picture"), id: "service-picture", class: "builder-photo") %>
     <% else %>
-      <%= cl_image_tag('eaa35mokrpgg4yg15ngp', height: 300, width: 400, crop: :fill, class: "card-test-img") %>
+      <%= cl_image_tag('bpcnwcjphzkf25eryqj9', class: "builder-photo") %>
     <% end %>
   <div><%= @service.name %></div>
   <div><%= @service.service_type %></div>
